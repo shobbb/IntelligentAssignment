@@ -30,7 +30,6 @@ def clstbuild():
     	flask.abort(400)
     data,users = extract_users(flask.request.json)
     teams,users = clst.kmeans_assignment(data,users, flask.request.json['max_team_size'])
-    json_obj = [[user.pid for user in team.members] for team in teams]
     return send_data_as_json(teams)
 
 @app.route('/swap_team_members',methods=['POST'])
