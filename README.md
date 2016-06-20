@@ -3,7 +3,6 @@
 Intelligent assignment creates teams, based off of each individual users ranking of topic preference, using k-means clustering. This webservice requires an input of each users ranks and unique id, as well as the max team size. This also uses top trading cycles to switch members of teams who have already worked with other members on that team.
 
 Accessing the service
-------------------
 
 	###1) Access the Webservice online
 	The service is hosted at: http://peerlogic.org/[rest of the path]. This service can be called without copying the code onto your local machine. 
@@ -14,7 +13,6 @@ Accessing the service
 		*[Flask](https://pypi.python.org/pypi/Flask)
 
 Methods
-------------------
 
 	###Creating teams (/merge_teams):
 	Uses K-means clustering to group users with similar topic interests. Works to eliminate competition for any single topic and increase the likelihood that each user obtains their most preferred topic. 
