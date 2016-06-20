@@ -2,7 +2,8 @@
 
 Intelligent assignment creates teams, based off of each individual users ranking of topic preference, using k-means clustering. This webservice requires an input of each users ranks and unique id, as well as the max team size. This also uses top trading cycles to switch members of teams who have already worked with other members on that team.
 
-##Accessing the service
+Accessing the service
+------------------
 
 	###1) Access the Webservice online
 	The service is hosted at: http://peerlogic.org/[rest of the path]. This service can be called without copying the code onto your local machine. 
@@ -12,7 +13,8 @@ Intelligent assignment creates teams, based off of each individual users ranking
 		*[Scipy](https://www.scipy.org/scipylib/download.html)
 		*[Flask](https://pypi.python.org/pypi/Flask)
 
-##Methods
+Methods
+------------------
 
 	###Creating teams (/merge_teams):
 	Uses K-means clustering to group users with similar topic interests. Works to eliminate competition for any single topic and increase the likelihood that each user obtains their most preferred topic. 
@@ -43,7 +45,8 @@ Intelligent assignment creates teams, based off of each individual users ranking
 			{"users": [{"ranks": [1, 0, 2, 3], "pid": 1023, "history": [4535, 9841, 9843]}, {"ranks": [1, 2, 0, 3], "pid": 4535, "history": [1023, 9843, 8542]}, {"ranks": [0, 2, 3, 1], "pid": 1363, "history": [3649, 9841, 9843]}, {"ranks": [2, 1, 0, 3], "pid": 9841, "history": [1363, 1023, 3649]}], "teams": [[9841, 4535], [1023, 1363]]}
 			```
 
-##Client Code Example
+Client Code Example
+------------------
 
 	```python
 
@@ -60,4 +63,3 @@ Intelligent assignment creates teams, based off of each individual users ranking
 		response = requests.post("http://127.0.0.1:5000/swap_team_members", data=response.text,headers=header)
 		print response.text
 	```
-	
