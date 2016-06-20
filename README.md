@@ -6,7 +6,7 @@ Accessing the service
 ------------------
 
 ###1) Access the Webservice online
-The service is hosted at: http://peerlogic.org/intelligent_assignment/[method name]. This service can be called without copying the code onto your local machine. 
+This service is hosted at: http://peerlogic.org/intelligent_assignment/[method name]. This service can be called without copying the code onto your local machine, simple make a post request to this url with the method name mentioned below. 
 
 ###2) Run it on your local machine
 The service can be copied from its github repository (https://github.com/peerlogic/IntelligentAssignment). It should be deployed as a webservice; though, it will also require the python libraries flask and scipy:
