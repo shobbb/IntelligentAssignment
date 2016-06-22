@@ -1,6 +1,6 @@
 #Intelligent Assignment
 
-Intelligent assignment creates teams based off of each individual users ranking of topic preference, using k-means clustering. This webservice requires an input of each users ranks [1 being most preferred, and 0 indicating no preference] and unique id [pid], as well as the max team size. This also uses top trading cycles to switch members of teams who have already worked with other members on that team.
+Intelligent assignment creates teams based off of each individual users ranking of topic preference, using k-means clustering. This webservice requires an input of each users ranks [1 being most preferred and 0 indicating no preference] and unique id [pid], as well as the max team size. This also uses top trading cycles to switch members of teams who have already worked with other members on that team.
 
 Accessing the service
 ------------------
