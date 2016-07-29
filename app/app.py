@@ -9,9 +9,9 @@ import clustering as clst
 import top_trading_cycles as ttc
 
 def extract_users(req):
-	users,exper_data = ([],[])
+	exper_data,users = ([],[])
 	for user in req['users']:
-		exper_data.append([float(data) / ((max(user['ranks'])+1)**(data-1)) for data in user['ranks']])
+		exper_data.append([float(data) for data in user['ranks']])
 		if "history" in user:
 			users.append(User(exper_data[-1],user['pid'],user['history']))
 		else:

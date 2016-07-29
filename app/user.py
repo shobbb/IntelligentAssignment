@@ -1,8 +1,4 @@
 class User:
-    topic_rank = []
-    pid = -1
-    history = []
-
     def __init__(self,topic_rank,pid,history=[]):
         self.topic_rank = topic_rank
         self.pid = pid

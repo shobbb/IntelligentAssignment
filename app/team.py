@@ -5,7 +5,6 @@ def dist(p1,p2):
   return math.sqrt(sum([(p1[i] - p2[i])**2 for i in range(len(p1))]))
 
 class Team:
-    members = []
     def __init__(self,members):
       self.members = members
 

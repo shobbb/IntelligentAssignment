@@ -3,6 +3,7 @@ import math
 from user import User
 from team import Team
 import team
+import weights as w
 
 def get_clusters(points):
     cen = kmeans([point[:len(point)-1] for point in points],2)[0].tolist()
@@ -24,6 +25,9 @@ def build_teams(people,teams,max_size):
 
 def kmeans_assignment(exper_data,users,max_size):
     assignments = []
+    weights = w.find_weights(exper_data,max_size)
+    weights.append(0)
+    exper_data = [[weights[int(data)-1] for data in row] for row in exper_data]
     build_teams([exper_data[i] + [i] for i in range(len(exper_data))],assignments,max_size)
     teams = [Team([users[user[-1]] for user in group]) for group in assignments]
     for team in teams:
