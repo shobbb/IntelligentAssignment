@@ -1,12 +1,12 @@
 #Intelligent Assignment
 
-Intelligent assignment creates teams, based off of each individual users ranking of topic preference, using k-means clustering. This webservice requires an input of each users ranks [1 being most preferred, and 0 indicating no preference] and unique id [pid], as well as the max team size. This also uses top trading cycles to switch members of teams who have already worked with other members on that team.
+Intelligent assignment creates teams based off of each individual users ranking of topic preference, using k-means clustering. This webservice requires an input of each users ranks [1 being most preferred and 0 indicating no preference] and unique id [pid], as well as the max team size. This also uses top trading cycles to switch members of teams who have already worked with other members on that team.
 
 Accessing the service
 ------------------
 
 ###1) Access the Webservice online
-The service is hosted at: http://peerlogic.org/intelligent_assignment/[method name]. This service can be called without copying the code onto your local machine. 
+This service is hosted at: http://peerlogic.csc.ncsu.edu/intelligent_assignment/ [method name]. This service can be called without copying the code onto your local machine, simply make a post request to this url with one of the method names mentioned below. 
 
 ###2) Run it on your local machine
 The service can be copied from its github repository (https://github.com/peerlogic/IntelligentAssignment). It should be deployed as a webservice; though, it will also require the python libraries flask and scipy:
