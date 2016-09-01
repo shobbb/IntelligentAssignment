@@ -1,4 +1,4 @@
-from scipy.cluster.vq import kmeans
+import scipy.cluster.vq as clst
 import math
 from user import User
 from team import Team
@@ -6,7 +6,7 @@ import team
 import weights as w
 
 def get_clusters(points):
-    cen = kmeans([point[:len(point)-1] for point in points],2)[0].tolist()
+    cen = clst.kmeans([point[:len(point)-1] for point in points],2)[0].tolist()
     c1, c2 = ([],[])
     for point in points:
         if team.dist(cen[0],point) < team.dist(cen[1],point):
