@@ -22,7 +22,6 @@ def find_benefit(mxp,current_pri,data,mts):
 			benefit.append(mts)
 		else:
 			benefit.append(selection.count(current_pri))
-	print float(sum(benefit))/len(data)
 	return (mxp/current_pri)*(sum(benefit)/len(data))
 
 
