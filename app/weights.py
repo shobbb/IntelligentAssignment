@@ -24,7 +24,6 @@ def find_benefit(mxp,current_pri,data,mts):
 			benefit.append(selection.count(current_pri))
 	return (mxp/current_pri)*(sum(benefit)/len(data))
 
-
 def find_weights(data,mts):
 	weights = []
 	max_priority = 0
