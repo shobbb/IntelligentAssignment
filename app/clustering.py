@@ -28,6 +28,15 @@ def kmeans_assignment(exper_data,users,max_size):
     weights = w.find_weights(exper_data,max_size)
     weights.append(0)
     exper_data = [[weights[int(data)-1] for data in row] for row in exper_data]
+    count = 0
+    stuff = []
+    for i in range(len(exper_data)):
+        if sum(exper_data[i]) == 0:
+            stuff.append(users[i])
+            count+=1
+    print count
+    for user in stuff:
+        print user.pid
     build_teams([exper_data[i] + [i] for i in range(len(exper_data))],assignments,max_size)
     teams = [Team([users[user[-1]] for user in group]) for group in assignments]
     for team in teams:

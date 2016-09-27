@@ -1,4 +1,4 @@
-#!flask/bin/python
+#!/usr/bin/env python -B
 from flask import Flask
 import flask
 from user import User
@@ -7,6 +7,7 @@ import user
 import json
 import clustering as clst
 import top_trading_cycles as ttc
+import sys
 
 def extract_users(req):
 	exper_data,users = ([],[])
@@ -42,4 +43,5 @@ def ttctrading():
 	return send_data_as_json(teams)
 
 if __name__ == "__main__":
+	sys.dont_write_bytecode = True
 	app.run(debug=True)

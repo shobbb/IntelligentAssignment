@@ -25,7 +25,7 @@ def top_trading_cycles(teams,users):
         for cycle in cycles:
             for team in cycle:
                 team.take_user_from(graph[team][0],graph[team][1])
-            for team in cycle:  
+            for team in cycle:
                 teams.pop(teams.index(team))
 
 
