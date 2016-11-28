@@ -29,9 +29,6 @@ def find_weights(data,mts):
 	max_priority = 0
 	for user in data:
 		max_priority = max(max_priority,int(max(user)))
-	print "Max Priority is: " + str(max_priority)
-	costs = find_costs(data,mts,max_priority)
-	print "Costs are: "+str(costs)
 	for priority in range(max_priority):
 		weights.append(find_benefit(max_priority,priority+1,data,mts)/costs[priority])
 	return weights
