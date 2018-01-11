@@ -1,13 +1,17 @@
 #!/usr/bin/env python -B
+import flask,json
 from flask import Flask
-import flask
-from user import User
-from team import Team
-import user
-import json
 import clustering as clst
 import top_trading_cycles as ttc
-import sys
+import intelligent_assignment as ia
+
+def extract_data(req):
+	x,w,data_id= ([],[],[])
+	for point in req['bids']:
+		x.append(point['ranks'])
+		w.append(point['weight'])
+		data_id.append(point['id'])
+	return x,w,data_id
 
 def extract_users(req):
 	exper_data,users = ([],[])
@@ -29,8 +33,10 @@ app = Flask(__name__)
 def clstbuild():
     if not 'users' in flask.request.json or not 'max_team_size' in flask.request.json or sum([not 'ranks' in user or not 'pid' in user for user in flask.request.json['users']]) > 0:
     	flask.abort(400)
-    data,users = extract_users(flask.request.json)
-    teams,users = clst.kmeans_assignment(data,users, flask.request.json['max_team_size'])
+    # data,users = extract_users(flask.request.json)
+	x,w,data_id = extract_data(flask.request.json)
+	ia.intelligent_assignment(x,w,data_id,flask.request.json['max_team_size'])
+    # teams,users = clst.kmeans_assignment(data,users, flask.request.json['max_team_size'])
     return send_data_as_json(teams)
 
 @app.route('/swap_team_members',methods=['POST'])
@@ -43,5 +49,4 @@ def ttctrading():
 	return send_data_as_json(teams)
 
 if __name__ == "__main__":
-	sys.dont_write_bytecode = True
 	app.run(debug=True)
