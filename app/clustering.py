@@ -8,11 +8,15 @@ import weights as w
 def get_clusters(points):
     cen = clst.kmeans([point[:len(point)-1] for point in points],2)[0].tolist()
     c1, c2 = ([],[])
-    for point in points:
-        if team.dist(cen[0],point) < team.dist(cen[1],point):
-            c1.append(point)
-        else:
-            c2.append(point)
+    if c2:
+        for point in points:
+            if team.dist(cen[0],point) < team.dist(cen[1],point):
+                c1.append(point)
+            else:
+                c2.append(point)
+    else:
+        split = int(len(points)/2)
+        return [points[:split],points[split:]]
     return [c1,c2]
 
 def build_teams(people,teams,max_size):
