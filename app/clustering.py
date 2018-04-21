@@ -6,14 +6,22 @@ import team
 import weights as w
 
 def get_clusters(points):
+    # `point[:len(point)-1]` excludes the index at the end of each item.
+    # so these index will not enter kmeans algorithm and will not affect the final results.
     centroids = clst.kmeans([point[:len(point)-1] for point in points],2)[0].tolist()
     c1, c2 = ([],[])
-    for point in points:
-        if team.dist(centroids[0],point) < team.dist(centroids[1],point):
-            c1.append(point)
-        else:
-            c2.append(point)
-    return [c1,c2]
+    # the number of centroids is 2 means 2 clusters can be produced by kmeans algorithm.
+    # the number of centroids is 1 means only 1 cluster can be produced, we simply split the data into 2 section.
+    if len(centroids) == 2:
+        for point in points:
+            if team.dist(centroids[0],point) < team.dist(centroids[1],point):
+                c1.append(point)
+            else:
+                c2.append(point)
+        return [c1,c2]
+    else:
+        split = int(len(points)/2)
+        return [points[:split],points[split:]]
 
 # Recursively performing 2-means clustering
 # until the number of each cluster is less than or equal to the max team size
