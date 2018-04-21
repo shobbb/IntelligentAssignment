@@ -6,6 +6,8 @@ import team
 import weights as w
 
 def get_clusters(points):
+    # `point[:len(point)-1]` excludes the index at the end of each item.
+    # so these index will not enter kmeans algorithm and will not affect the final results.
     centroids = clst.kmeans([point[:len(point)-1] for point in points],2)[0].tolist()
     c1, c2 = ([],[])
     for point in points:
