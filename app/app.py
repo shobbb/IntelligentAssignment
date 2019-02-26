@@ -3,7 +3,6 @@ import flask,json
 from flask import Flask
 import clustering as clst
 import top_trading_cycles as ttc
-import intelligent_assignment as ia
 from user import User
 
 def extract_data(req):

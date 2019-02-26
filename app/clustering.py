@@ -1,4 +1,5 @@
 import scipy.cluster.vq as clst
+import numpy as np
 import math
 from user import User
 from team import Team
@@ -8,7 +9,7 @@ import weights as w
 def get_clusters(points):
     # `point[:len(point)-1]` excludes the index at the end of each item.
     # so these index will not enter kmeans algorithm and will not affect the final results.
-    centroids = clst.kmeans([point[:len(point)-1] for point in points],2)[0].tolist()
+    centroids = clst.kmeans(np.array([point[:len(point)-1] for point in points]),2)[0].tolist()
     c1, c2 = ([],[])
     # the number of centroids is 2 means 2 clusters can be produced by kmeans algorithm.
     # the number of centroids is 1 means only 1 cluster can be produced, we simply split the data into 2 section.
