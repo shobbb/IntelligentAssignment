@@ -22,14 +22,14 @@ def find_benefit(mxp,current_pri,data,mts):
 			benefit.append(mts)
 		else:
 			benefit.append(selection.count(current_pri))
-	return (mxp/current_pri)*(sum(benefit)/len(data))
+	return (float(mxp)/current_pri)*(float(sum(benefit))/len(data))
 
 def find_weights(data,mts):
-	weights = []
-	max_priority = 0
-	for user in data:
-		max_priority = max(max_priority,int(max(user)))
-	costs = find_costs(data,mts,max_priority)
-	for priority in range(max_priority):
-		weights.append(find_benefit(max_priority,priority+1,data,mts)/costs[priority])
-	return weights
+    weights = []
+    max_priority = 0
+    for user in data:
+        max_priority = max(max_priority,int(max(user)))
+    costs = find_costs(data,mts,max_priority)
+    for priority in range(max_priority):
+        weights.append(find_benefit(max_priority,priority+1,data,mts)/costs[priority])
+    return weights
